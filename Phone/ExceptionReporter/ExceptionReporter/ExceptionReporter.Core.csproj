@@ -1,0 +1,105 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>ExceptionReporter</RootNamespace>
+    <TargetFramework>net472</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutDir>..\..\..\Binaries\</OutDir>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.1.271, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>.\ICSharpCode.SharpZipLib.dll</HintPath>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\CommonAssemblyInfo.cs" Link="CommonAssemblyInfo.cs" />
+    <None Include="ICSharpCode.SharpZipLib.dll" />
+    <Compile Update="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ExceptionDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\ExceptionDetailControl.designer.cs">
+      <DependentUpon>ExceptionDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ExceptionReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\ExceptionReportView.designer.cs">
+      <DependentUpon>ExceptionReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Views\InternalExceptionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\ReportSender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\ReportSender.Designer.cs">
+      <DependentUpon>ReportSender.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Web References\ua.com.artpoint.bug\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning %281%29.png" />
+    <Content Include="warning.ico" />
+    <None Include="Web References\ua.com.artpoint.bug\Report.disco" />
+    <EmbeddedResource Update="Views\ExceptionDetailControl.resx">
+      <DependentUpon>ExceptionDetailControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ExceptionReportView.resx">
+      <DependentUpon>ExceptionReportView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\InternalExceptionView.resx">
+      <DependentUpon>InternalExceptionView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ReportSender.resx">
+      <DependentUpon>ReportSender.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XmlToHtml.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ContactPoint.BaseDesign\ContactPoint.BaseDesign.csproj" />
+    <ProjectReference Include="..\..\ContactPoint.Common\ContactPoint.Common.csproj" />
+    <ProjectReference Include="..\Win32Mapi\Win32Mapi.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ua.com.artpoint.bug\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ua.com.artpoint.bug\Report.wsdl" />
+  </ItemGroup>
+</Project>

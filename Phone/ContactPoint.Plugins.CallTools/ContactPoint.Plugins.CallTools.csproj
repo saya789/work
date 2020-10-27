@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutDir>..\..\Binaries\Plugins\CallTools\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="KryptonWinFormControls" Version="4.4.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs" Link="CommonAssemblyInfo.cs" />
+    <Compile Update="CallNotifyWindow\CallNotifyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CallNotifyWindow\CallNotifyControl.Designer.cs">
+      <DependentUpon>CallNotifyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Update="CallNotifyWindow\TagsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CallNotifyWindow\TagsControl.Designer.cs">
+      <DependentUpon>TagsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Ui\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Ui\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+      <ProjectReference Include="..\ContactPoint.BaseDesign\ContactPoint.BaseDesign.csproj">
+          <Private>false</Private>
+      </ProjectReference>
+      <ProjectReference Include="..\ContactPoint.Common\ContactPoint.Common.csproj" />
+    <ProjectReference Include="..\ContactPoint.Core\ContactPoint.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="CallNotifyWindow\CallNotifyControl.resx">
+      <DependentUpon>CallNotifyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CallNotifyWindow\TagsControl.resx">
+      <DependentUpon>TagsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Ui\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Speaker %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\call_green_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\call_red_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffee02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\service01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-offline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-online.png" />
+  </ItemGroup>
+</Project>

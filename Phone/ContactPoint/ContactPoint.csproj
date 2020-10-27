@@ -1,0 +1,180 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <ApplicationIcon>ipphone.ico</ApplicationIcon>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutDir>..\..\Binaries\</OutDir>
+    <PostBuildEvent>if not exist "$(TargetDir)Plugins" md "$(TargetDir)Plugins"</PostBuildEvent>
+    <StartupObject>ContactPoint.Program</StartupObject>
+    <AssemblyName>ContactPoint</AssemblyName>
+    <Prefer32Bit>true</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://ipphone.github.io/</PackageProjectUrl>
+    <PackageIcon>logo.png</PackageIcon>
+    <RepositoryUrl>https://github.com/ipphone/</RepositoryUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="IPPhone.pjsipDll" Version="1.12.128934039-ci16" />
+    <PackageReference Include="KryptonWinFormControls" Version="4.4.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs" Link="CommonAssemblyInfo.cs" />
+    <Compile Update="Forms\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="NotifyControls\AudioDeviceChangedNotifyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="NotifyControls\AudioDeviceChangedNotifyControl.Designer.cs">
+      <DependentUpon>AudioDeviceChangedNotifyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Update="NotifyControls\AudioDevicesAddedNotifyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="NotifyControls\AudioDevicesNotifyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="NotifyControls\AudioDevicesNotifyControl.Designer.cs">
+      <DependentUpon>AudioDevicesNotifyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Update="NotifyControls\AudioDevicesRemovedNotifyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CaptionStrings\CaptionStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CaptionStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\LoaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\LoaderForm.Designer.cs">
+      <DependentUpon>LoaderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\LoggerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\LoggerForm.Designer.cs">
+      <DependentUpon>LoggerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\MainFormShadeControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\MainFormPhoneStatusControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\MainFormPhoneStatusControl.Designer.cs">
+      <DependentUpon>MainFormPhoneStatusControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="Forms\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NotifyControls\AudioDeviceChangedNotifyControl.resx">
+      <DependentUpon>AudioDeviceChangedNotifyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NotifyControls\AudioDevicesNotifyControl.resx">
+      <DependentUpon>AudioDevicesNotifyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\LoaderForm.resx">
+      <DependentUpon>LoaderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\LoggerForm.resx">
+      <DependentUpon>LoggerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+      <LastGenOutput>LoggerForm1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\ColorSlider.resx">
+      <DependentUpon>ColorSlider.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Update="Forms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SettingsForm.designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\ToolStripUIElementButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\TransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ColorSlider.designer.cs">
+      <DependentUpon>ColorSlider.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="Controls\MainFormPhoneStatusControl.resx">
+      <DependentUpon>MainFormPhoneStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="ipphone.ico" />
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="Resources\logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="Sounds\congestion.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sounds\dial.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sounds\ring.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sounds\ringback.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContactPoint.BaseDesign.Wpf\ContactPoint.BaseDesign.Wpf.csproj" />
+    <ProjectReference Include="..\ContactPoint.BaseDesign\ContactPoint.BaseDesign.csproj" />
+    <ProjectReference Include="..\ContactPoint.Core\ContactPoint.Core.csproj" />
+    <ProjectReference Include="..\ContactPoint.Common\ContactPoint.Common.csproj" />
+    <ProjectReference Include="..\ExceptionReporter\ExceptionReporter\ExceptionReporter.Core.csproj" />
+  </ItemGroup>
+</Project>

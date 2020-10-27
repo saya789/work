@@ -1,0 +1,105 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutDir>..\..\Binaries\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineConstants />
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="KryptonWinFormControls" Version="4.4.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs" Link="CommonAssemblyInfo.cs" />
+    <Compile Update="AlertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AlertForm.Designer.cs">
+      <DependentUpon>AlertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="BaseNotifyControls\NotifyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="BaseNotifyControls\NotifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="BaseNotifyControls\NotifyForm.Designer.cs">
+      <DependentUpon>NotifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Components\AdvancedBindingSource.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Components\ControlsPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Components\SelectableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\SelectableVerticalLayoutList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Components\SelectableVerticalLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Components\UIToolStripButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Components\VerticalLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="LineSeparator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="OwnLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="QuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="QuestionForm.Designer.cs">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="AlertForm.resx">
+      <DependentUpon>AlertForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="BaseNotifyControls\NotifyForm.resx">
+      <DependentUpon>NotifyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Components\VerticalLayoutPanel.resx">
+      <DependentUpon>VerticalLayoutPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="QuestionForm.resx">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_dialog_alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close1.png" />
+  </ItemGroup>
+</Project>
